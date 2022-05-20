@@ -7,8 +7,9 @@ public class CarListTest {
     private CarList carList;
 
     @org.junit.Before
+
     public void setUp() throws Exception {
-        carList=new CarArrayList();
+        carList = new CarArrayList();
         for (int i = 0; i < 100; i++) {
             carList.add(new Car("Brand" + i, i));
         }
@@ -58,4 +59,26 @@ public class CarListTest {
         assertEquals("Brand0", car.getBrand());
     }
 
+    @Test
+    public void insertIntoMiddle (){
+        Car car1 = new Car("BMW", 5);
+        carList.add(car1, 50);
+        Car carFromList=carList.get(50);
+        assertEquals("BMW", carFromList.getBrand());
+    }
+
+    @Test
+    public void insertIntoFirstPosition (){
+        Car car1 = new Car("BMW", 5);
+        carList.add(car1, 0);
+        Car carFromList=carList.get(0);
+        assertEquals("BMW", carFromList.getBrand());
+    }
+    @Test
+    public void insertIntoLastPosition (){
+        Car car1 = new Car("BMW", 5);
+        carList.add(car1, 99);
+        Car carFromList=carList.get(99);
+        assertEquals("BMW", carFromList.getBrand());
+    }
 }

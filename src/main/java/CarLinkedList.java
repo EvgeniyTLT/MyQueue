@@ -45,6 +45,13 @@ public class CarLinkedList implements CarList {
 
     @Override
     public boolean remove(Car car) {
+        Node node = first;
+        for (int i = 0; i < size; i++) {
+            if (node.value.equals(car)){
+                return removeAt(i);
+            }
+            node = node.next;
+        }
         return false;
     }
 
@@ -56,7 +63,7 @@ public class CarLinkedList implements CarList {
         if (nodeNext != null) {
             nodeNext.previous = nodePrevious;
         } else {
-            last=nodePrevious;
+            last = nodePrevious;
         }
         if (nodePrevious != null) {
             nodePrevious.next = nodeNext;

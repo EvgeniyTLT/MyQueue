@@ -50,7 +50,22 @@ public class CarLinkedList implements CarList {
 
     @Override
     public boolean removeAt(int index) {
-        return false;
+        Node node = getNode(index);
+        Node nodeNext = node.next;
+        Node nodePrevious = node.previous;
+        if (nodeNext != null) {
+            nodeNext.previous = nodePrevious;
+        } else {
+            last=nodePrevious;
+        }
+        if (nodePrevious != null) {
+            nodePrevious.next = nodeNext;
+        } else {
+            first = nodeNext;
+        }
+
+        size--;
+        return true;
     }
 
     @Override

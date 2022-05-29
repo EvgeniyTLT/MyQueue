@@ -10,7 +10,7 @@ public class CarSetTest {
 
     @Before
     public void setUp() throws Exception {
-//init
+        carSet = new CarHashSet();
         for (int i = 0; i < 100; i++) {
             carSet.add(new Car("Brand" + i, i));
         }
@@ -28,8 +28,7 @@ public class CarSetTest {
     @Test
     public void whenSetClearedThenSize0() {
         carSet.clear();
-        assertEquals(100, carSet.size());
-
+        assertEquals(0, carSet.size());
     }
 
     @Test

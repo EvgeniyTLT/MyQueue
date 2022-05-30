@@ -1,4 +1,4 @@
-public interface CarSet extends CarCollection{
+public interface CarSet extends CarCollection {
     boolean add(Car car);
 
     boolean remove(Car car);

@@ -12,9 +12,8 @@ public class CarLinkedList implements CarList {
     @Override
     public boolean add(Car car) {
         if (size == 0) {
-            Node node = new Node(null, car, null);
-            first = node;
-            last = node;
+            first = new Node(null, car, null);
+            last = first;
         } else {
             Node secondLast = last;
             last = new Node(secondLast, car, null);
@@ -57,7 +56,6 @@ public class CarLinkedList implements CarList {
     @Override
     public boolean contains(Car car) {
         return findElement(car) != -1;
-
     }
 
     @Override
@@ -75,7 +73,6 @@ public class CarLinkedList implements CarList {
         } else {
             first = nodeNext;
         }
-
         size--;
         return true;
     }

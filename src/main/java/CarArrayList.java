@@ -1,9 +1,9 @@
 import java.util.Arrays;
 
 public class CarArrayList implements CarList {
+
     private Car[] array = new Car[10];
     private int size = 0;
-
 
     @Override
     public Car get(int index) {
@@ -25,7 +25,7 @@ public class CarArrayList implements CarList {
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
         }
-        System.arraycopy(array, index + 1 + 1, array, index + 1, size - index);
+        System.arraycopy(array, index, array, index + 1, size - index);
         array[index] = car;
         size++;
         return true;
@@ -77,14 +77,14 @@ public class CarArrayList implements CarList {
     }
 
     private void increaseArray() {
-        if (array.length <= size) {
+        if (size >= array.length) {
             array = Arrays.copyOf(array, array.length * 2);
         }
+    }
+}
 //            замена в одну строчку
 //            Car[] newArray = new Car[array.length * 2];
 //            for (int i = 0; i < array.length; i++) {
 //                newArray[i] = array[i];
 //            }
 //            array = newArray;
-    }
-}

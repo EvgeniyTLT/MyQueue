@@ -1,4 +1,4 @@
-public interface CarList extends CarCollection{
+public interface CarList extends CarCollection {
     Car get(int index);
 
     boolean add(Car car);
@@ -12,6 +12,4 @@ public interface CarList extends CarCollection{
     int size();
 
     void clear();
-
-
 }

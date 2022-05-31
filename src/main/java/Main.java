@@ -4,18 +4,18 @@ import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
-        Set<Car> cars = new TreeSet<>(new Comparator<Car>() {
+        Set<Integer> numbers = new TreeSet<>(new Comparator<Integer>() {
             @Override
-            public int compare(Car o1, Car o2) {
-                return o1.getBrand().compareTo(o2.getBrand());
+            public int compare(Integer o1, Integer o2) {
+                return -o1.compareTo(o2);
             }
         });
         for (int i = 0; i < 100; i++) {
-            cars.add(new Car("Brand" + i, i));
+            numbers.add((int) (Math.random() * 10));
         }
-        for (Car car : cars
+        for (Integer number : numbers
         ) {
-            System.out.println(car);
+            System.out.println(number);
         }
     }
 }

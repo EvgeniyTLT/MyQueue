@@ -9,7 +9,7 @@ public class CarMapTest {
 
     @Before
     public void setUp() throws Exception {
-//        map = new CarHashMap();
+        map = new CarHashMap();
     }
 
     @Test

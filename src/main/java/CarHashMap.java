@@ -38,7 +38,6 @@ public class CarHashMap implements CarMap {
                 }
                 if (existedElement.next == null) {
                     existedElement.next = new Entry(key, value, null);
-
                     return true;
                 }
                 existedElement = existedElement.next;

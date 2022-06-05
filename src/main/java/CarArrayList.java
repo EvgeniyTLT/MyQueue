@@ -21,7 +21,7 @@ public class CarArrayList<T> implements CarList<T> {
     }
 
     @Override
-    public boolean add(Car car, int index) {
+    public boolean add(T car, int index) {
         increaseArray();
         if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException();
@@ -67,7 +67,7 @@ public class CarArrayList<T> implements CarList<T> {
 
     @Override
     public void clear() {
-        array = new Object[10];
+        array = new Car[10];
         size = 0;
     }
 
@@ -85,7 +85,6 @@ public class CarArrayList<T> implements CarList<T> {
             @Override
             public T next() {
                 return (T) array[index++];
-
             }
         };
     }

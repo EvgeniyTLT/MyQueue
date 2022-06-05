@@ -5,32 +5,32 @@ import static org.junit.Assert.*;
 
 public class CarQueueTest {
 
-    private CarQueue carQueue;
+    private CarQueue<Car> queue;
 
     @Before
     public void setUp() throws Exception {
-        carQueue = new CarLinkedList();
+        queue = new CarLinkedList<>();
         for (int i = 0; i < 10; i++) {
-            carQueue.add(new Car("Brand" + i, i));
+            queue.add(new Car("Brand" + i, i));
         }
     }
 
     @Test
     public void add() {
-        assertEquals(10, carQueue.size());
+        assertEquals(10, queue.size());
     }
 
     @Test
     public void peek() {
-        Car car = carQueue.peek();
+        Car car = queue.peek();
         assertEquals("Brand0", car.getBrand());
-        assertEquals(10, carQueue.size());
+        assertEquals(10, queue.size());
     }
 
     @Test
-    public void pol() {
-        Car car = carQueue.pol();
+    public void poll() {
+        Car car = queue.poll();
         assertEquals("Brand0", car.getBrand());
-        assertEquals(9, carQueue.size());
+        assertEquals(9, queue.size());
     }
 }

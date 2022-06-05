@@ -1,44 +1,44 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class CarListTest {
 
-    private CarList carList;
+    private CarList<Car> carList;
 
-    @org.junit.Before
-
+    @Before
     public void setUp() throws Exception {
-        carList = new CarLinkedList();
+        carList = new CarArrayList<>();
         for (int i = 0; i < 100; i++) {
             carList.add(new Car("Brand" + i, i));
         }
     }
 
     @Test
-    public void whenAdded100ElementsthenSizeMustBe100() {
+    public void whenAdded100ElementsThenSizeMustBe100() {
         assertEquals(100, carList.size());
     }
 
     @Test
-    public void whenElementRemoveByIndexThenSizeMustBeDecreased() {
+    public void whenElementRemovedByIndexThenSizeMustBeDecreased() {
         assertTrue(carList.removeAt(5));
         assertEquals(99, carList.size());
     }
 
     @Test
-    public void whenElementRemoveThenSizeMustBeDecreased() {
-        Car car1 = new Car("BMW", 5);
-        carList.add(car1);
+    public void whenElementRemovedThenSizeMustBeDecreased() {
+        Car car = new Car("Toyota", 15);
+        carList.add(car);
         assertEquals(101, carList.size());
-        assertTrue(carList.remove(car1));
+        assertTrue(carList.remove(car));
         assertEquals(100, carList.size());
     }
 
     @Test
     public void whenNonExistentElementRemovedThenReturnFalse() {
-        Car car1 = new Car("BMW", 5);
-        assertFalse(carList.remove(car1));
+        Car car = new Car("Toyota", 15);
+        assertFalse(carList.remove(car));
         assertEquals(100, carList.size());
     }
 
@@ -60,25 +60,26 @@ public class CarListTest {
     }
 
     @Test
-    public void insertIntoMiddle (){
-        Car car1 = new Car("BMW", 5);
-        carList.add(car1, 50);
-        Car carFromList=carList.get(50);
+    public void insertIntoMiddle() {
+        Car car = new Car("BMW", 1);
+        carList.add(car, 50);
+        Car carFromList = carList.get(50);
         assertEquals("BMW", carFromList.getBrand());
     }
 
     @Test
-    public void insertIntoFirstPosition (){
-        Car car1 = new Car("BMW", 5);
-        carList.add(car1, 0);
-        Car carFromList=carList.get(0);
+    public void insertIntoFirstPosition() {
+        Car car = new Car("BMW", 1);
+        carList.add(car, 0);
+        Car carFromList = carList.get(0);
         assertEquals("BMW", carFromList.getBrand());
     }
+
     @Test
-    public void insertIntoLastPosition (){
-        Car car1 = new Car("BMW", 5);
-        carList.add(car1, 99);
-        Car carFromList=carList.get(99);
+    public void insertIntoLastPosition() {
+        Car car = new Car("BMW", 1);
+        carList.add(car, 100);
+        Car carFromList = carList.get(100);
         assertEquals("BMW", carFromList.getBrand());
     }
 }
